@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import api from "@/utils/axiosInterceptors";
-import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import Navbar, { NavbarDark } from "@/components/Navbar";
+import Banner from "@/components/Banner";
 
 const homepage = () => {
   const [products, setProducts] = useState([]);
@@ -22,24 +22,14 @@ const homepage = () => {
   }, []);
   return (
     <>
-      <Navbar />
-    <div className="flex flex-wrap w-full overflow-hidden rounded-xl bg-gray-200 bg-clip-border text-gray-700 shadow-md justify-center mt-24">
-    <div className="relative w-full h-64 md:h-96 mb-5">
-            <Image
-                src="/new-banner.png"
-                layout="fill"
-                objectFit="cover"
-                alt="Picture"
-                className="w-full h-full"
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-                <h1 className="text-white text-2xl md:text-4xl font-bold">Featured Products</h1>
-            </div>
-        </div>
+    <Navbar/>
+            <Banner/>
+    <div className="flex flex-wrap w-full overflow-hidden rounded-xl bg-gradient-to-t from-slate-900 via-stone-900 to-gray-900 bg-clip-border text-gray-700 shadow-md justify-center">
+   
 
-      {products.slice(2, 7).map((item) => (
-        <div className="card bg-base-100 w-64 shadow-xl m-2 rounded-none">
-          <figure className="px-10 pt-10">
+      {products.slice(1, 7).map((item) => (
+        <div className="card bg-gradient-to-r from-violet-200 to-pink-200 w-64 shadow-xl m-2 rounded-none">
+          <figure className="px-2 pt-3">
             <img
               src={item.image}
               alt="Shoes"
@@ -48,7 +38,9 @@ const homepage = () => {
           </figure>
           <div className="card-body items-center text-center">
             <h2 className="card-title">{item.title}</h2>
-            <p>{item.description}</p>
+            <p className="line-clamp-2">{item.description}</p>
+            <h1>$ {item.price}</h1>
+
             <div className="card-actions">
               <button className="btn btn-primary rounded-none">Buy Now</button>
             </div>

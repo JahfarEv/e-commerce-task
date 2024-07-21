@@ -36,7 +36,7 @@ const page = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-800">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-t from-slate-900 via-stone-900 to-gray-900 dark:bg-gray-800">
       <div className="w-full max-w-4xl overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200 table-auto">
           <thead className="bg-gray-50">
@@ -66,18 +66,18 @@ const page = () => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {products.map((item, index) => (
-              <tr key={index}>
+            {products.map((item) => (
+              <tr key={item.id}>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <h1 className="badge badge-ghost badge-sm">{item.title}</h1>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="flex items-center gap-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle h-12 w-12">
-                        <img src={item.image} alt={item.title} />
+                  <div className="flex items-center">
+                   
+                      <div className="mask mask-squircle">
+                        <img src={item.image} alt={item.title} width={30} height={30} />
                       </div>
-                    </div>
+                   
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">

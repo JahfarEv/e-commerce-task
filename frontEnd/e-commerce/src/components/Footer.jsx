@@ -3,15 +3,15 @@ export function Footer() {
   return (
 
 
-<footer className="footer footer-center bg-base-200 text-base-content rounded p-10 mt-5">
-  <nav className="grid grid-flow-col gap-4">
+<footer className=" footer footer-center bg-gradient-to-t from-slate-900 via-stone-900 to-gray-900 text-base-content rounded p-10">
+  <nav className="grid grid-flow-col gap-4 text-white">
     <a className="link link-hover">About us</a>
     <a className="link link-hover">Contact</a>
     <a className="link link-hover">Jobs</a>
     <a className="link link-hover">Press kit</a>
   </nav>
   <nav>
-    <div className="grid grid-flow-col gap-4">
+    <div className="grid grid-flow-col gap-4 text-white">
       <a>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@ export function Footer() {
       </a>
     </div>
   </nav>
-  <aside>
+  <aside className="text-white">
     <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
   </aside>
 </footer>
