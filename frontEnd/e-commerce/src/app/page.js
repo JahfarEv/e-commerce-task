@@ -38,7 +38,7 @@ const homepage = () => {
         </div>
 
       {products.slice(2, 7).map((item) => (
-        <div className="card bg-base-100 w-96 shadow-xl m-2 rounded-none">
+        <div className="card bg-base-100 w-64 shadow-xl m-2 rounded-none">
           <figure className="px-10 pt-10">
             <img
               src={item.image}

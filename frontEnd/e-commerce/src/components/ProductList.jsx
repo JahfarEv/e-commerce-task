@@ -22,7 +22,7 @@ const Products = () => {
     <div className="flex flex-wrap w-full overflow-hidden rounded-xl bg-gray-200 bg-clip-border text-gray-700 shadow-md justify-center mt-24">
       {products.map((item) => (
       
-        <div className="card bg-base-200 w-96 shadow-xl rounded-none m-2">
+        <div className="card bg-base-200 w-64 shadow-xl rounded-none m-2">
           <figure className="px-10 pt-10">
             <img
               src={item.image}
