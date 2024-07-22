@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const createError = require("../utils/createError");
 
 
 
@@ -23,10 +24,7 @@ const adminLogin = async (req, res) => {
         token,
       });
     } else {
-      res.status(401).json({
-        status: "not found",
-        message: "invalid admin",
-      });
+      next(createError('not found', 'NotFoundError'))
     }
   };
 

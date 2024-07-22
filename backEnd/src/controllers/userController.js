@@ -1,6 +1,7 @@
 const User = require('../models/userSchema')
 const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const createError = require('../utils/createError');
 
 const signToken = (id)=>{
     return jwt.sign({id}, process.env.SECRET_STR,{
@@ -20,10 +21,7 @@ async function signup(req, res, next) {
       email === "" ||
       password === ""
     ) {
-      res.status(400).json({
-        status: "error",
-        message: "Required fields",
-      });
+      next(createError('Required field', 'ValidationError'))
     }
     const userExist = await User.findOne({ email });
     if (userExist) {
@@ -48,10 +46,8 @@ async function login(req, res, next) {
     const { email, password } = req.body;
   console.log(email,password);
     if (!email || !password || email === "" || password === "") {
-      res.status(400).json({
-        status: "error",
-        message: "Required fields",
-      });
+      next(createError('Required field', 'ValidationError'))
+
     }
     try {
       const validUser = await User.findOne({ email }).select("+password");
