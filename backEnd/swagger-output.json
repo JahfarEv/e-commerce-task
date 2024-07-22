@@ -15,7 +15,7 @@
       "https"
     ],
     "paths": {
-      "/api/user/signup": {
+      "/api/users/signup": {
         "post": {
           "description": "to register new user",
           "parameters": [
@@ -84,7 +84,7 @@
           }
         }
       },
-      "/api/products/get/": {
+      "/api/products": {
         "get": {
           "description": "Fetch all users",
           "responses": {
@@ -100,7 +100,7 @@
           }
         }
       },
-      "/api/users/{id}": {
+      "/api/products/{id}": {
         "get": {
           "description": "Fetch user By Id",
           "parameters": [
@@ -123,7 +123,7 @@
           }
         }
       },
-      "/api/users/{userId}": {
+      "/api/products/update{id}": {
         "patch": {
           "description": "udpate a user",
           "parameters": [

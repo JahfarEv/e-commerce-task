@@ -23,9 +23,9 @@ const homepage = () => {
   return (
     <>
     <Navbar/>
-            <Banner/>
+            
     <div className="flex flex-wrap w-full overflow-hidden rounded-xl bg-gradient-to-t from-slate-900 via-stone-900 to-gray-900 bg-clip-border text-gray-700 shadow-md justify-center">
-   
+   <Banner/>
 
       {products.slice(1, 7).map((item) => (
         <div className="card bg-gradient-to-r from-violet-200 to-pink-200 w-64 shadow-xl m-2 rounded-none">

@@ -1,58 +1,51 @@
-"use client";
+"use client"
+import api from "@/utils/axiosInterceptors";
 import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "@/redux/feachures/authSlice";
-import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+
 const Login = () => {
-  // state
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const router = useRouter();
 
-  // redux state
-  const { isLoading, error } = useSelector((state) => state.user);
-  const dispatch = useDispatch();
-  const handleLoginEvent = async (e) => {
-    
+  // state
+
+  const [username, setName] = useState();
+  const [password, setPassword] = useState();
+
+  // api calling
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    let userCredential = {
-      email,
-      password,
-    };
-    try {
-      dispatch(loginUser(userCredential)).then((result)=>{
-        if (result.payload) {
-          setEmail("");
-          setPassword("");
-          router.replace("/");
-        }
-        }
-      )
-    } catch (err) {
-      console.error("Login failed: ", err);
-    }
-  }
+
+    api
+      .post("/admin/login", { username, password })
+      .then((result) => {
+        console.log(result);
+        router.push("/admin/dashboard");
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
-    <div className="h-[100%] items-center flex justify-center px-5 lg:px-0">
+    <div className="h-[100%] items-center flex justify-center lg:px-0 ">
       <div className="max-w-screen-xl bg-white border shadow sm:rounded-lg flex justify-center flex-1 bg-gradient-to-t from-slate-900 via-stone-900 to-gray-900">
         <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
           <div className=" flex flex-col items-center">
             <div className="text-center">
               <h1 className="text-2xl xl:text-4xl font-extrabold text-white">
-                Sign in
+                Sign up
               </h1>
-              <p className="text-[12px] text-gray-500"></p>
             </div>
-            <form onSubmit={handleLoginEvent}>
+            <form onSubmit={handleSubmit}>
               <div className="w-full flex-1 mt-8">
                 <div className="mx-auto max-w-xs flex flex-col gap-4">
                   <input
                     className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                    type="email"
-                    placeholder="Enter your email"
-                    onChange={(e) => setEmail(e.target.value)}
+                    type="text"
+                    placeholder="Enter your name"
+                    onChange={(e) => setName(e.target.value)}
                   />
+                
 
                   <input
                     className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
@@ -73,24 +66,9 @@ const Login = () => {
                       <circle cx="8.5" cy="7" r="4" />
                       <path d="M20 8v6M23 11h-6" />
                     </svg>
-                    <span className="ml-3">
-                      {" "}
-                      {isLoading ? "Loading..." : "Login"}
-                    </span>
+                    <span className="ml-3">Sign Up</span>
                   </button>
-                  {error && (
-                    <div className="alert alert-danger" role="alert">
-                      {error}
-                    </div>
-                  )}
-                  <p className="mt-6 text-xs text-white text-center">
-                    Dont have an account?{" "}
-                    <Link href="/signup">
-                      <span className="text-white font-semibold">
-                        Sign up
-                      </span>
-                    </Link>
-                  </p>
+                  
                 </div>
               </div>
             </form>

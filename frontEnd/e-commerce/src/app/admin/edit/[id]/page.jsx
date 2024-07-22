@@ -42,7 +42,7 @@ function EditProduct() {
       <div className="flex items-center justify-center font-extrabold text-xl m-5">
         <h1>EDIT PRODUCT</h1>
       </div>
-      <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-800">
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-t from-slate-900 via-stone-900 to-gray-900 dark:bg-gray-800">
         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-lg">
           <div class="mb-4" onChange={(e) => setTitle(e.target.value)}>
             <label

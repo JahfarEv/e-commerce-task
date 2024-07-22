@@ -81,20 +81,48 @@
 // export const { addToken, addUser, logout } = authSlice.actions;
 // export default authSlice.reducer;
 
-// // import { createSlice } from '@reduxjs/toolkit'
+import api from "@/utils/axiosInterceptors";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-// // const initialState = { items: [] }
+export const loginUser = createAsyncThunk(
+  "loginUser",
+  async (userCredential) => {
+    const data = await api.post("users/login", userCredential);
+    const response = await data.data;
+    localStorage.setItem("valid", JSON.stringify(response));
+    console.log(response);
+    return response;
+  }
+);
 
-// // const cartSlice = createSlice({
-// //   name: 'cart',
-// //   initialState,
-// //   reducers: {
-// //     add(state,action) {
-// //       state.items.push(action.payload)
-// //     },
-  
-// //   },
-// // })
+const userSlice = createSlice({
+  name: "user",
+  initialState: {
+    isLoading: false,
+    user: null,
+    error: null,
+  },
+  extraReducers: (builder) => {
+    builder.addCase(loginUser.pending, (state, action) => {
+      (state.isLoading = true), (state.user = null), (state.error = null);
+    });
 
-// // export const { add } = cartSlice.actions
-// // export default counterSlice.reducer
+    builder.addCase(loginUser.fulfilled, (state, action) => {
+      (state.isLoading = false),
+        (state.user = action.payload),
+        (state.error = null);
+    });
+    builder.addCase(loginUser.rejected, (state, action) => {
+      (state.isLoading = false),
+        (state.user = null),
+        console.log(action.error.message);
+      if (action.error.message === "Request failed with status code 401") {
+        state.error = "acces denied! Invalid Credentials";
+      } else {
+        state.error = action.error.message;
+      }
+    });
+  },
+});
+
+export default userSlice.reducer;

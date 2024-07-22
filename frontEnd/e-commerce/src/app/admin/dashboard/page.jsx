@@ -47,9 +47,7 @@ const page = () => {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Image
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Description
-              </th>
+              
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Price
               </th>
@@ -80,11 +78,7 @@ const page = () => {
                    
                   </div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <span className="badge badge-ghost badge-sm">
-                    {item.description}
-                  </span>
-                </td>
+                
                 <td className="px-6 py-4 whitespace-nowrap">{item.price}</td>
                 <td className="px-6 py-4 whitespace-nowrap flex gap-2">
                   <Link href={`/admin/edit/${item._id}`}>

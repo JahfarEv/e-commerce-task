@@ -120,6 +120,15 @@ const Navbar = () => {
                   Login
                 </Link>
               </li>
+              <li className="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
+                <Link
+                  href="/admin/login"
+                  className="flex items-center transition-colors hover:text-slate-400"
+                  onClick={closeMenu}
+                >
+                  Admin
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
