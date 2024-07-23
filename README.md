@@ -2,6 +2,10 @@
 
 This is a simple e-commerce website built using Next.js for the front end and Node.js for the backend. The project includes user authentication, product browsing, and CRUD operations for products.
 
+## Important Notes
+
+- The `.env` file is not ignored in this repository to facilitate the setup and running of the application.
+
 ## Technologies Used
 
 - Next.js (v14)
@@ -46,11 +50,7 @@ This is a simple e-commerce website built using Next.js for the front end and No
         ```bash
         npm install
         ```
-    - Create a `.env` file and add your MongoDB URI and JWT secret:
-        ```env
-        MONGO_URI=your-mongodb-uri
-        JWT_SECRET=your-jwt-secret
-        ```
+   
     - Start the backend server using nodemon:
         ```bash
         nodemon server
@@ -65,11 +65,8 @@ This is a simple e-commerce website built using Next.js for the front end and No
         ```bash
         npm install
         ```
-    - Create a `.env.local` file and add your backend API URL:
-        ```env
-        NEXT_PUBLIC_API_URL=http://localhost:5000
-        ```
-    - Start the frontend server:
+   
+ - Start the frontend server:
         ```bash
         npm run dev
         ```
