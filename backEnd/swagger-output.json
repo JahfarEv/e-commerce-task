@@ -174,7 +174,7 @@
         }
       },
       "/api/products/delete{id}": {
-        "post": {
+        "delete": {
           "description": "like/unlike a post",
           "parameters": [
             {
@@ -207,24 +207,11 @@
               "description": "Internal Server Error"
             }
           }
-        },
-        "get":{
-          "description": "get post as timeline as by followed user",
-          "responses":{
-            "200": {
-              "description": "OK"
-            },
-            "404": {
-              "description": "Not Found"
-            },
-            "500": {
-              "description": "Internal Server Error"
-            }
-          }
         }
+        
       },
       "/api/products/create": {
-        "get": {
+        "post": {
           "description": "get user posts ",
           "parameters": [
             {
@@ -248,7 +235,7 @@
         }
       },
       "/api/admin/login": {
-        "get": {
+        "post": {
           "description": "add posts by id",
           "parameters": [
             {

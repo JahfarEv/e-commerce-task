@@ -26,7 +26,6 @@ const Navbar = () => {
             FashionFinesse
           </Link>
 
-          {/* Show menu button when menu is closed */}
           {!isOpen && (
             <button
               className="relative ml-auto h-6 w-6 select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-inherit transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:hidden"
@@ -53,7 +52,6 @@ const Navbar = () => {
             </button>
           )}
 
-          {/* Show close button when menu is open */}
           {isOpen && (
             <button
               className="relative h-6 w-6 select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-inherit transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:hidden"
@@ -81,7 +79,9 @@ const Navbar = () => {
           )}
 
           <div
-            className={`lg:flex lg:items-center w-full ${isOpen ? "block" : "hidden"}`}
+            className={`lg:flex lg:items-center w-full ${
+              isOpen ? "block" : "hidden"
+            }`}
           >
             <ul className="flex flex-col gap-4 my-2 lg:my-0 lg:flex-row lg:items-center lg:gap-6 w-full">
               <li className="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
@@ -102,7 +102,11 @@ const Navbar = () => {
                   Services
                 </Link>
               </li>
-              <li className={`block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900 ${!isOpen ? "ml-auto" : "mr-auto"}`}>
+              <li
+                className={`block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900 ${
+                  !isOpen ? "ml-auto" : "mr-auto"
+                }`}
+              >
                 <Link
                   href="/about"
                   className="flex items-center transition-colors hover:text-slate-400"

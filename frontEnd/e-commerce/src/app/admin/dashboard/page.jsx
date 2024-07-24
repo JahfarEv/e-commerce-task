@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const page = () => {
   const [products, setProducts] = useState([]);
 
-// fetch products
+  // fetch products
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -47,7 +47,7 @@ const page = () => {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Image
               </th>
-              
+
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Price
               </th>
@@ -71,14 +71,17 @@ const page = () => {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex items-center">
-                   
-                      <div className="mask mask-squircle">
-                        <img src={item.image} alt={item.title} width={30} height={30} />
-                      </div>
-                   
+                    <div className="mask mask-squircle">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        width={30}
+                        height={30}
+                      />
+                    </div>
                   </div>
                 </td>
-                
+
                 <td className="px-6 py-4 whitespace-nowrap">{item.price}</td>
                 <td className="px-6 py-4 whitespace-nowrap flex gap-2">
                   <Link href={`/admin/edit/${item._id}`}>

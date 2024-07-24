@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import api from "@/utils/axiosInterceptors";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -7,7 +7,7 @@ import { useState } from "react";
 const Signup = () => {
   const router = useRouter();
 
-  // state
+  // states
 
   const [name, setName] = useState();
   const [email, setEmail] = useState();

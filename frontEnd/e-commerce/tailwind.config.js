@@ -10,6 +10,7 @@ module.exports = {
   theme: {
 theme: {
     extend: {
+     
       lineClamp: {
         10:"10",
         12:"12",

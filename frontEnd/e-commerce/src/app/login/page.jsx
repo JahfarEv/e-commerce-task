@@ -14,25 +14,23 @@ const Login = () => {
   const { isLoading, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const handleLoginEvent = async (e) => {
-    
     e.preventDefault();
     let userCredential = {
       email,
       password,
     };
     try {
-      dispatch(loginUser(userCredential)).then((result)=>{
+      dispatch(loginUser(userCredential)).then((result) => {
         if (result.payload) {
           setEmail("");
           setPassword("");
           router.replace("/");
         }
-        }
-      )
+      });
     } catch (err) {
       console.error("Login failed: ", err);
     }
-  }
+  };
   return (
     <div className="h-[100%] items-center flex justify-center px-5 lg:px-0">
       <div className="max-w-screen-xl bg-white border shadow sm:rounded-lg flex justify-center flex-1 bg-gradient-to-t from-slate-900 via-stone-900 to-gray-900">
@@ -86,9 +84,7 @@ const Login = () => {
                   <p className="mt-6 text-xs text-white text-center">
                     Dont have an account?{" "}
                     <Link href="/signup">
-                      <span className="text-white font-semibold">
-                        Sign up
-                      </span>
+                      <span className="text-white font-semibold">Sign up</span>
                     </Link>
                   </p>
                 </div>

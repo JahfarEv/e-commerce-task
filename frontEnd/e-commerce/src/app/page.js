@@ -1,9 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import api from "@/utils/axiosInterceptors";
-import Image from "next/image";
-import Navbar, { NavbarDark } from "@/components/Navbar";
-import Banner from "@/components/Banner";
+import Navbar from "@/components/Navbar";
+import Link from "next/link";
 
 const homepage = () => {
   const [products, setProducts] = useState([]);
@@ -13,7 +12,6 @@ const homepage = () => {
       try {
         const response = await api.get("products");
         setProducts(response.data.data);
-        console.log(response.data.data);
       } catch (error) {
         console.log(error);
       }
@@ -25,10 +23,14 @@ const homepage = () => {
     <Navbar/>
             
     <div className="flex flex-wrap w-full overflow-hidden rounded-xl bg-gradient-to-t from-slate-900 via-stone-900 to-gray-900 bg-clip-border text-gray-700 shadow-md justify-center">
-   <Banner/>
-
+    <div id="slide1" className="carousel-item relative h-[600px] w-full hidden sm:block">
+    <img
+      src="/shoe.png"
+      className="w-full"  />
+      </div>
+   
       {products.slice(1, 7).map((item) => (
-        <div className="card bg-gradient-to-r from-violet-200 to-pink-200 w-64 shadow-xl m-2 rounded-none">
+        <div className="card bg-gradient-to-r from-violet-200 to-pink-200 w-64 shadow-xl m-2 rounded-none mt-10">
           <figure className="px-2 pt-3">
             <img
               src={item.image}
@@ -41,13 +43,16 @@ const homepage = () => {
             <p className="line-clamp-2">{item.description}</p>
             <h1>$ {item.price}</h1>
 
-            <div className="card-actions">
-              <button className="btn btn-primary rounded-none">Buy Now</button>
-            </div>
+            <Link href={`/product/${item._id}`}>
+                <button className="btn btn-primary rounded-none">
+                  More info
+                </button>
+              </Link>
           </div>
         </div>
       ))}
-    </div>
+      </div>
+  
     </>
   );
 };

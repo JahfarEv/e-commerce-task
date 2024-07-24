@@ -104,7 +104,6 @@ async function deleteProduct(req, res, next) {
     next(createError("Post not foud", "NotFoundError"));
   }
   return res.status(200).json({
-    
     status: "success",
     message: "Successfully deleted",
   });

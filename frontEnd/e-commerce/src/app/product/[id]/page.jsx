@@ -24,25 +24,20 @@ const ProductDetail = () => {
 
   return (
     <>
-    <Navbar/>
-    <div className="card lg:card-side bg-base-100 shadow-xl px-5 m-5 mt-24">
-    
-  <figure>
-    <img
-      src={product.image}
-      alt="Album" 
-        className="w-96 h-90"
-      />
-  </figure>
-  <div className="card-body object-cover w-96">
-    <h2 className="card-title">{product.title}</h2>
-    <p>{product.description}</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy now</button>
-    </div>
-  </div>
-</div>
-</>
+      <Navbar />
+      <div className="card lg:card-side bg-base-100 shadow-xl px-5 m-5 mt-12 lg:mt-24">
+        <figure className="w-full lg:w-1/2">
+          <img src={product.image} alt="Album" className="w-full h-auto object-cover" />
+        </figure>
+        <div className="card-body w-full lg:w-1/2">
+          <h2 className="card-title text-lg lg:text-2xl">{product.title}</h2>
+          <p className="text-sm lg:text-base">{product.description}</p>
+          <div className="card-actions justify-end mt-4">
+            <button className="btn btn-primary w-full lg:w-auto">Buy now</button>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
