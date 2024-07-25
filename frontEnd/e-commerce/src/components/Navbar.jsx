@@ -1,9 +1,16 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../src/app/globals.css";
+import { MdLogin } from "react-icons/md";
+import { IoMdLogOut } from "react-icons/io";
+import { useRouter } from "next/navigation";
+import { RiAdminFill } from "react-icons/ri";
+import { MdOutlineShoppingBag } from "react-icons/md";
 
 const Navbar = () => {
+  const router = useRouter();
+  const [user, setUser] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -12,6 +19,18 @@ const Navbar = () => {
 
   const closeMenu = () => {
     setIsOpen(false);
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const token = localStorage.getItem("token");
+      setUser(token);
+    }
+  });
+  // logout
+  const logout = () => {
+    localStorage.clear();
+    router.refresh();
   };
 
   return (
@@ -84,10 +103,18 @@ const Navbar = () => {
             }`}
           >
             <ul className="flex flex-col gap-4 my-2 lg:my-0 lg:flex-row lg:items-center lg:gap-6 w-full">
-              <li className="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
+              <div className="dropdown dropdown-bottom text-black">
+                <div tabIndex={0} role="button" className="btn m-1 bg-transparent text-white border-none hover:text-slate-400 hover:bg-transparent">
+                  Categories
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu bg-gradient-to-r from-violet-200 to-pink-200 rounded-box z-[1] w-52 p-2 shadow"
+                >
+                  <li className="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
                 <Link
                   href="/products"
-                  className="flex items-center transition-colors hover:text-slate-400"
+                  className="flex items-center transition-colors hover:text-white"
                   onClick={closeMenu}
                 >
                   Products
@@ -96,12 +123,17 @@ const Navbar = () => {
               <li className="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
                 <Link
                   href="/services"
-                  className="flex items-center transition-colors hover:text-slate-400"
+                  className="flex items-center transition-colors hover:text-white"
                   onClick={closeMenu}
                 >
                   Services
                 </Link>
               </li>
+                </ul>
+              </div>
+
+             
+              
               <li
                 className={`block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900 ${
                   !isOpen ? "ml-auto" : "mr-auto"
@@ -112,17 +144,25 @@ const Navbar = () => {
                   className="flex items-center transition-colors hover:text-slate-400"
                   onClick={closeMenu}
                 >
-                  About
+                  <MdOutlineShoppingBag size={25} />
                 </Link>
               </li>
               <li className="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
-                <Link
-                  href="/login"
-                  className="flex items-center transition-colors hover:text-slate-400"
-                  onClick={closeMenu}
-                >
-                  Login
-                </Link>
+                {user ? (
+                  <IoMdLogOut
+                    size={25}
+                    onClick={logout}
+                    className="cursor-pointer"
+                  />
+                ) : (
+                  <Link
+                    href="/login"
+                    className="flex items-center transition-colors hover:text-slate-400"
+                    onClick={closeMenu}
+                  >
+                    <MdLogin size={25} />
+                  </Link>
+                )}
               </li>
               <li className="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
                 <Link
@@ -130,7 +170,7 @@ const Navbar = () => {
                   className="flex items-center transition-colors hover:text-slate-400"
                   onClick={closeMenu}
                 >
-                  Admin
+                  <RiAdminFill size={25} />
                 </Link>
               </li>
             </ul>

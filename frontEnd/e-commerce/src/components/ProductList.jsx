@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../redux/feachures/productSlice";
 const Products = () => {
 
-  
-  //products fetchin with redux
+
+  //products fetch with redux
 
   const [user, setUser] = useState(null);
   const dispatch = useDispatch();
@@ -47,13 +47,11 @@ const Products = () => {
               <h2 className="card-title">$ {item.price}</h2>
               <div className="card-actions">
                 <button className="btn btn-primary rounded-none">
-                  `
                   {user ? (
                     <Link href={`/product/${item._id}`}>More info</Link>
                   ) : (
                     <Link href="/login">More info</Link>
                   )}
-                  `
                 </button>
               </div>
             </div>

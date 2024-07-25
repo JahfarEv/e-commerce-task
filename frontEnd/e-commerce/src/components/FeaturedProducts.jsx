@@ -1,11 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import { fetchProducts } from "@/redux/feachures/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const homepage = () => {
+const FeaturedProducts = () => {
   const [user, setUser] = useState(null);
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.data);
@@ -26,18 +25,18 @@ const homepage = () => {
 
   return (
     <>
-      <Navbar />
+      
 
       <div className="flex flex-wrap w-full overflow-hidden rounded-xl bg-gradient-to-t from-slate-900 via-stone-900 to-gray-900 bg-clip-border text-gray-700 shadow-md justify-center">
         <div
           id="slide1"
-          className="carousel-item relative h-[600px] w-full hidden md:block"
+          className="carousel-item relative h-[600px] w-full hidden sm:block"
         >
           <img src="/shoe.png" className="w-full" />
         </div>
 
         {products.slice(1, 7).map((item) => (
-          <div className="card bg-gradient-to-r from-violet-200 to-pink-200 w-64 shadow-xl m-2 rounded-none">
+          <div className="card bg-gradient-to-r from-violet-200 to-pink-200 w-64 shadow-xl m-2 rounded-none mt-10 ">
             <figure className="px-2 pt-3">
               <img
                 src={item.image}
@@ -65,4 +64,4 @@ const homepage = () => {
   );
 };
 
-export default homepage;
+export default FeaturedProducts;

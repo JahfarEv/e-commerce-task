@@ -33,7 +33,7 @@ const Login = () => {
           <div className=" flex flex-col items-center">
             <div className="text-center">
               <h1 className="text-2xl xl:text-4xl font-extrabold text-white">
-                Sign up
+              Admin Login
               </h1>
             </div>
             <form onSubmit={handleSubmit}>
@@ -66,7 +66,7 @@ const Login = () => {
                       <circle cx="8.5" cy="7" r="4" />
                       <path d="M20 8v6M23 11h-6" />
                     </svg>
-                    <span className="ml-3">Sign Up</span>
+                    <span className="ml-3">Login</span>
                   </button>
                   
                 </div>
