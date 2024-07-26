@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 import api from "@/utils/axiosInterceptors";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 function Product() {
   const router = useRouter();
   const [title, setTitle] = useState("");

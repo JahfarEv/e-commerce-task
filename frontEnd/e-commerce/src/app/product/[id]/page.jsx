@@ -3,6 +3,7 @@ import api from "@/utils/axiosInterceptors";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
+import Image from "next/image";
 
 const ProductDetail = () => {
   const { id } = useParams();

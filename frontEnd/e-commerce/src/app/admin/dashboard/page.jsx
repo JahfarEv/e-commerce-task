@@ -2,7 +2,7 @@
 import api from "@/utils/axiosInterceptors";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
+import Image from "next/image";
 const page = () => {
   const [products, setProducts] = useState([]);
 

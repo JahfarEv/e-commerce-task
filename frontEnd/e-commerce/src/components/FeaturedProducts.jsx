@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { fetchProducts } from "@/redux/feachures/productSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Image from "next/image";
 
 const FeaturedProducts = () => {
   const [user, setUser] = useState(null);

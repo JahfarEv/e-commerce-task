@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../redux/feachures/productSlice";
+import Image from "next/image";
 const Products = () => {
 
 
