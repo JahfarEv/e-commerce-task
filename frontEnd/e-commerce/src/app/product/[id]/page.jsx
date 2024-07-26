@@ -27,7 +27,7 @@ const ProductDetail = () => {
       <Navbar />
       <div className="card lg:card-side bg-base-100 shadow-xl px-5 m-5 mt-12 lg:mt-24">
         <figure className="w-full lg:w-1/2">
-          <img src={product.image} alt="Album" className="w-full h-auto object-cover" />
+          <Image src={product.image} alt="Album" className="w-full h-auto object-cover" />
         </figure>
         <div className="card-body w-full lg:w-1/2">
           <h2 className="card-title text-lg lg:text-2xl">{product.title}</h2>

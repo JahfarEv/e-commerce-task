@@ -33,13 +33,13 @@ const homepage = () => {
           id="slide1"
           className="carousel-item relative h-[600px] w-full hidden md:block"
         >
-          <img src="/shoe.png" className="w-full" />
+          <Image src="/shoe.png" className="w-full" />
         </div>
 
-        {products.slice(1, 7).map((item) => (
-          <div className="card bg-gradient-to-r from-violet-200 to-pink-200 w-64 shadow-xl m-2 rounded-none">
+        {products.slice(1, 7).map((item,index) => (
+          <div key={item.id||index} className="card bg-gradient-to-r from-violet-200 to-pink-200 w-64 shadow-xl m-2 rounded-none">
             <figure className="px-2 pt-3">
-              <img
+              <Image
                 src={item.image}
                 alt="Shoes"
                 className="rounded-xl w-full h-48 object-cover"

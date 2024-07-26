@@ -35,7 +35,7 @@ const Products = () => {
             className="card bg-gradient-to-r from-violet-200 to-pink-200 w-64 shadow-xl rounded-none m-2 mt-24"
           >
             <figure className="px-3 pt-3">
-              <img
+              <Image
                 src={item.image}
                 alt="Product"
                 className="rounded-xl w-full h-48 object-cover"

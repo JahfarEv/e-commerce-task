@@ -8,7 +8,7 @@ const Banner = () => {
    
 
 <div id="slide1" className="carousel-item relative w-full h-[600px]">
-    <img
+    <Image
       src="/shoe.png"
       className="w-full hidden sm:block"  />
     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">

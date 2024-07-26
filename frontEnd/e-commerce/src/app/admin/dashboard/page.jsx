@@ -64,15 +64,15 @@ const page = () => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {products.map((item) => (
-              <tr key={item.id}>
+            {products.map((item,index) => (
+              <tr key={item.id||index}>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <h1 className="badge badge-ghost badge-sm">{item.title}</h1>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex items-center">
                     <div className="mask mask-squircle">
-                      <img
+                      <Image
                         src={item.image}
                         alt={item.title}
                         width={30}
