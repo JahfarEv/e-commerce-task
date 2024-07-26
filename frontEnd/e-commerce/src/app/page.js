@@ -5,7 +5,7 @@ import Link from "next/link";
 import { fetchProducts } from "@/redux/feachures/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const homepage = () => {
+const Homepage = () => {
   const [user, setUser] = useState(null);
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.data);
@@ -65,4 +65,4 @@ const homepage = () => {
   );
 };
 
-export default homepage;
+export default Homepage;

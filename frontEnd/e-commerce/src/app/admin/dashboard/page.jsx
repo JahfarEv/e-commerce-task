@@ -3,7 +3,7 @@ import api from "@/utils/axiosInterceptors";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-const page = () => {
+const Dashboard = () => {
   const [products, setProducts] = useState([]);
 
   // fetch products
@@ -105,4 +105,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Dashboard;
