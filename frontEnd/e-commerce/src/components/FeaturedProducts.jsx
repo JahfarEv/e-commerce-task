@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { fetchProducts } from "@/redux/feachures/productSlice";
 import { useDispatch, useSelector } from "react-redux";
-import img from '../../public/Shoe.png'
+import img from '../assets/Shoe.png'
 const FeaturedProducts = () => {
   const [user, setUser] = useState(null);
   const dispatch = useDispatch();
@@ -32,7 +32,8 @@ const FeaturedProducts = () => {
           id="slide1"
           className="carousel-item relative h-[600px] w-full hidden sm:block"
         >
-          <img src={img} className="w-full" />
+          <img src="https://res.cloudinary.com/dbcs1wzb6/image/upload/v1722053623/Pro_image/wb7mdjq3yrqfst6f5tee.png" className="w-full" alt="shoe"/>
+          
         </div>
 
         {products.slice(1, 7).map((item,index) => (

@@ -72,7 +72,7 @@ const Dashboard = () => {
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex items-center">
                     <div className="mask mask-squircle">
-                      <Image
+                      <img
                         src={item.image}
                         alt={item.title}
                         width={30}
