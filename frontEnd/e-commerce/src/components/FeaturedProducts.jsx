@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { fetchProducts } from "@/redux/feachures/productSlice";
 import { useDispatch, useSelector } from "react-redux";
-import Image from "next/image";
-
+import img from '../../public/Shoe.png'
 const FeaturedProducts = () => {
   const [user, setUser] = useState(null);
   const dispatch = useDispatch();
@@ -33,7 +32,7 @@ const FeaturedProducts = () => {
           id="slide1"
           className="carousel-item relative h-[600px] w-full hidden sm:block"
         >
-          <img src="/shoe.png" className="w-full" />
+          <img src={img} className="w-full" />
         </div>
 
         {products.slice(1, 7).map((item,index) => (
