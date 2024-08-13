@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import img from '../assets/Shoe.png'
 const FeaturedProducts = () => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true)
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.data);
   const isLoading = useSelector((state) => state.products.isLoading);
@@ -16,10 +17,10 @@ const FeaturedProducts = () => {
       const token = localStorage.getItem("token");
       setUser(token);
     }
-
+    
     dispatch(fetchProducts());
+    setLoading(false)
   }, [dispatch]);
-
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
@@ -28,6 +29,7 @@ const FeaturedProducts = () => {
       
 
       <div className="flex flex-wrap w-full overflow-hidden rounded-xl bg-gradient-to-t from-slate-900 via-stone-900 to-gray-900 bg-clip-border text-gray-700 shadow-md justify-center">
+     
         <div
           id="slide1"
           className="carousel-item relative h-[600px] w-full hidden sm:block"
@@ -35,9 +37,11 @@ const FeaturedProducts = () => {
           <img src="https://res.cloudinary.com/dbcs1wzb6/image/upload/v1722053623/Pro_image/wb7mdjq3yrqfst6f5tee.png" className="w-full" alt="shoe"/>
           
         </div>
+        {loading ? <p>Loading...</p> :(
 
-        {products.slice(1, 7).map((item,index) => (
+        products.slice(1, 7).map((item,index) => (
           <div key={index||item.id} className="card bg-gradient-to-r from-violet-200 to-pink-200 w-64 shadow-xl m-2 rounded-none mt-10 ">
+           
             <figure className="px-2 pt-3">
               <img
                 src={item.image}
@@ -59,7 +63,8 @@ const FeaturedProducts = () => {
               </button>
             </div>
           </div>
-        ))}
+        ))
+       ) }
       </div>
     </>
   );
